@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    margin: auto;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.answer-container{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 6rem;
+    margin: auto;
+}
+
+input, input:focus, input:focus-visible{
+    font-size: 2rem;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.words-container{
+    display: flex;
+    gap: .5rem;
+    font-size: 1.1rem;
+}
+.headings{
+    text-align: center;
+}
+.failures{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
