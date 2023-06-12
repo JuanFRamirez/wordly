@@ -1,11 +1,11 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#root{
-    margin: auto;
+#root {
+  margin: auto;
 }
 
 .input-container {
@@ -15,36 +15,48 @@
   gap: 1rem;
 }
 
-.answer-container{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.answer-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-button{
-    width: 6rem;
+button {
+  width: 6rem;
+  margin: auto;
+}
+
+input,
+input:focus,
+input:focus-visible {
+  font-size: 2rem;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.words-container {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+.headings {
+  text-align: center;
+}
+.failures {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+  .headings {
+    margin: 1rem;
+  }
+  .input-container {
+    width: 80%;
     margin: auto;
-}
-
-input, input:focus, input:focus-visible{
-    font-size: 2rem;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-}
-
-.words-container{
-    display: flex;
-    gap: .5rem;
-    font-size: 1.1rem;
-}
-.headings{
-    text-align: center;
-}
-.failures{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  }
 }

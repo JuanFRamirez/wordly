@@ -1,6 +1,7 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import './App.css';
 import { GuessWord } from './interfaces/GuessWord';
+import { InputElement } from './interfaces/InputElement';
 
 function App() {
   const [word, setWord] = useState('');
@@ -10,6 +11,8 @@ function App() {
   const [failures, setFailures] = useState(0);
 
   const API_KEY = import.meta.env.VITE_WORDKEY!;
+
+  const inputElement = useRef<InputElement>(null);
 
   const APICALL = async () => {
     try {
@@ -31,8 +34,13 @@ function App() {
     await APICALL();
   }, []);
 
+  const focusElement = () => {
+    inputElement.current!.focus();
+  };
+
   useEffect(() => {
     fetchData();
+    focusElement();
   }, []);
 
   useEffect(() => {
@@ -42,7 +50,8 @@ function App() {
   }, [word, isGameOver]);
 
   const handleGuess = (e: HTMLInputElement) => {
-    const val = e.value;
+    console.log(e)
+    const val = e.value.toLowerCase();
     if (val.length > 1) {
       val.substring(0, -1);
       return;
@@ -73,6 +82,7 @@ function App() {
       }
     }
     setInsertedLetter('');
+    focusElement();
   };
 
   const restart = () => {
@@ -98,6 +108,7 @@ function App() {
             <input
               type='text'
               onChange={(e) => handleGuess(e.target)}
+              ref={inputElement}
               max={1}
               min={1}
               value={insertedLetter}
